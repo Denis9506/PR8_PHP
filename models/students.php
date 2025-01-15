@@ -19,6 +19,8 @@
 
         public function updateStudent(){
             $q = "UPDATE students SET name = '".$_POST["name"]."', group_id = '".$_POST["group_id"]."' WHERE id = ".$_POST["update"];            $this->db_query($q);
+            die(json_encode($q));
+
         }
         public function getGroups(){
             $q = "SELECT * FROM  groups";

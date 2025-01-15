@@ -11,21 +11,25 @@
         }
 
         public function index(){
-            $subjects = $this->model->getSubjectsFromDB();
-            include 'views/subjects.php';
+             $subjects = $this->model->getSubjectsFromDB();
+             include 'views/subjects.php';
+            } 
+        public function getData(){
+            $data['subjects'] = $this->model->getSubjectsFromDB();
+            die(json_encode($data));
         }
 
         public function addSubject(){
             if($_POST['name']){
                 $this->model->addSubjectToDB();
             }
-            $this->redirect("/index.php/subjects");
+            die(json_encode(true));
         }
 
         public function actions(){
             if($_POST['delete']) $this->model->deleteSubjectFromDB();
             if($_POST['update']) $this->model->updateSubject();
-            $this->redirect("/index.php/subjects");
+            die(json_encode(true));
         }
     }
 ?>

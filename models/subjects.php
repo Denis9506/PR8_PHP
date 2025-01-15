@@ -8,6 +8,7 @@
 
         public function addSubjectToDB(){
             $q = $this->insert_db_query($_POST, 'subjects');
+            echo $q;
             $this->db_query($q);
         }
 
@@ -17,8 +18,9 @@
         }
 
         public function updateSubject(){
-            $q = "UPDATE subjects SET name=' ".$_POST['name'][$_POST['update']]."' WHERE id = ".$_POST['update'];
+            $q = "UPDATE subjects SET name='".$_POST["name"]."' WHERE id = ".$_POST["update"];
             $this->db_query($q);
+            die(json_encode($q));
         }
 
     }

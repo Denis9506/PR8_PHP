@@ -27,7 +27,7 @@
         }
 
         public function update(){
-            $q = "UPDATE uspishnist SET sid=' ".$_POST['sid'][$_POST['update']]."', pid=' ".$_POST['pid'][$_POST['update']]."', mark=' ".$_POST['mark'][$_POST['update']]."' WHERE id = ".$_POST['update'];
+            $q = "UPDATE uspishnist SET sid=' ".$_POST['sid']."', pid=' ".$_POST['pid']."', mark=' ".$_POST['mark']."' WHERE id = ".$_POST['update'];
             $this->db_query($q);
         }
         public function searchStudents($name) {
